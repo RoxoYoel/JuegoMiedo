@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Inicio : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Inicio : MonoBehaviour
             vl.weight = i;
             yield return new WaitForSeconds(0.1f);
         }
+        StartCoroutine(Ebrio());
     }
 
     public void Reanudar() 
@@ -46,5 +48,10 @@ public class Inicio : MonoBehaviour
     public void Mostrar (GameObject obj)
     {
         obj.SetActive(true);
+    }
+
+    public void Reintentar()
+    {
+        SceneManager.LoadScene(0);
     }
 }
